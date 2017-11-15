@@ -58,3 +58,12 @@ def does_user_exist(uname):
 def add_new_user(uname, pswd, name, age):
 	#Save this new user to azure db
 	return True
+
+
+
+def get_posts(uname):
+	# get the messages, images and videos by this user
+	cnt = [{"type": "message", "title": "Bitcoin Vanishes", "content": "IDK man, it just happened"}]
+	cnt = cnt + [{"type": "image", "title": "Bitcoin", "content": "<probably the url>"}]
+	cnt = cnt + [{"type": "video", "title": "Bitcoin ka video", "content": "<probably the url>"}]
+	return cnt

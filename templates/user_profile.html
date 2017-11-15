@@ -36,5 +36,16 @@
 		Age: {{ odetail.age }}<br>
 		Following: {{ odetail.following }}
 	{% endif %}
+	<h2> {{ ouname }}'s Posts</h2>
+	{% for post in posts %}
+		{% if post.type == "message" %}
+			<p><font><b>{{ post.title }}</b></font><br>
+			{{ post.content }}</p>
+		{% elif post.type == "image" %}
+			img
+		{% elif post.type == "video" %}
+			vid
+		{% endif %}
+	{% endfor %}
 </body>
 </html>

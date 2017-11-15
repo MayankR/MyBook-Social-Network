@@ -83,6 +83,8 @@ def user_profile(request, username):
 		res["following"] = wu.is_following(uname, username)
 	else:
 		res["following"] = False
+
+	res['posts'] = wu.get_posts(username)
 	return render(request, 'user_profile.html', res)
 
 def add_message(request):
