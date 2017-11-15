@@ -135,10 +135,11 @@ def add_image(request):
 	if request.method == "POST":
 		print(request.FILES)
 		title = request.POST.get("title", False)
-		content = request.POST.get("pic", False)
+		# content = request.POST.get("pic", False)
 		print(title)
-		print(content)
-		if title==False or content==False or title=="" or content=="":
+		# print(content)
+		# if title==False or content==False or title=="" or content=="":
+		if title==False or title=="":
 			return render(request, 'new_image.html', {'uname': uname, 'error': "Enter all data"})
 
 		wu.save_image(uname, title, request.FILES['pic'])
@@ -155,10 +156,10 @@ def add_video(request):
 	if request.method == "POST":
 		print(request.FILES)
 		title = request.POST.get("title", False)
-		content = request.POST.get("vid", False)
+		# content = request.POST.get("vid", False)
 		print(title)
-		print(content)
-		if title==False or content==False or title=="" or content=="":
+		# print(content)
+		if title==False or title=="":
 			return render(request, 'new_video.html', {'uname': uname, 'error': "Enter all data"})
 
 		wu.save_video(uname, title, request.FILES['vid'])
