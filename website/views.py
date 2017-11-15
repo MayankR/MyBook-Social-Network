@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-import website.util as wu
+import website.util_copy as wu
 
 # Create your views here.
 
@@ -58,15 +58,6 @@ def user_profile(request, username):
 		res["following"] = False
 	return render(request, 'user_profile.html', res)
 
-
-def add_video(request):
-	response = HttpResponseRedirect('/')
-	return response
-
-def add_image(request):
-	response = HttpResponseRedirect('/')
-	return response
-
 def add_message(request):
 	uname = request.session.get('uname', False)
 	if uname == False:
@@ -84,10 +75,67 @@ def add_message(request):
 		wu.save_message(uname, title, content)
 		return render(request, 'new_message.html', {'uname': uname})
 
-
-	
-
 	return render(request, 'new_message.html', {'uname': uname})
 
+def follow_user(request, username):
+	uname = request.session.get('uname', False)
+	if uname == False:
+		response = HttpResponseRedirect('/login')
+		return response
 
+	wu.follow_user(uname, username)
+
+	response = HttpResponseRedirect('/user/' + username)
+	return response
+
+def unfollow_user(request, username):
+	uname = request.session.get('uname', False)
+	if uname == False:
+		response = HttpResponseRedirect('/login')
+		return response
+
+	wu.unfollow_user(uname, username)
+
+	response = HttpResponseRedirect('/user/' + username)
+	return response
+
+def add_image(request):
+	uname = request.session.get('uname', False)
+	if uname == False:
+		response = HttpResponseRedirect('/login')
+		return response
+
+	if request.method == "POST":
+		print(request.FILES)
+		title = request.POST.get("title", False)
+		content = request.POST.get("pic", False)
+		print(title)
+		print(content)
+		if title==False or content==False or title=="" or content=="":
+			return render(request, 'new_image.html', {'uname': uname, 'error': "Enter all data"})
+
+		wu.save_image(uname, title, request.FILES['pic'])
+		return render(request, 'new_image.html', {'uname': uname})
+
+	return render(request, 'new_image.html', {'uname': uname})
+
+def add_video(request):
+	uname = request.session.get('uname', False)
+	if uname == False:
+		response = HttpResponseRedirect('/login')
+		return response
+
+	if request.method == "POST":
+		print(request.FILES)
+		title = request.POST.get("title", False)
+		content = request.POST.get("vid", False)
+		print(title)
+		print(content)
+		if title==False or content==False or title=="" or content=="":
+			return render(request, 'new_video.html', {'uname': uname, 'error': "Enter all data"})
+
+		wu.save_video(uname, title, request.FILES['vid'])
+		return render(request, 'new_video.html', {'uname': uname})
+
+	return render(request, 'new_video.html', {'uname': uname})
 

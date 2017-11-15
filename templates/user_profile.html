@@ -26,9 +26,9 @@
 	{% else %}
 		{% if uname %}
 			{% if following %}
-				<a href="unfollow/{{ouname}}">Unfollow</a><br>
+				<a href="/unfollow/{{ouname}}">Unfollow</a><br>
 			{% else %}
-				<a href="follow/{{ouname}}">Follow</a><br>
+				<a href="/follow/{{ouname}}">Follow</a><br>
 			{% endif %}
 		{% endif %}
 		Name: {{ odetail.name }}<br>
