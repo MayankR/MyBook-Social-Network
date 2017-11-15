@@ -4,8 +4,9 @@
 	<title>New Video | {{uname}}</title>
 </head>
 <body>
-	<p>Hi, <b>{{uname}}</b>!</p>
+	<p>Hi, <b><a href="/user/{{ uname }}">{{uname}}</a></b>!</p>
 	<a href="/">Home</a> <a href="/logout">Logout</a>
+	<hr>
 	<h3>Add a new Video</h3>
 	<form action="#" method="POST" enctype="multipart/form-data">{% csrf_token %}
 		<input type="text" name="title" placeholder="Title goes here"><br>

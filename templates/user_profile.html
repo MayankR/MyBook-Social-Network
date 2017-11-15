@@ -5,7 +5,7 @@
 </head>
 <body>
 	{% if uname %}
-		<p>Hi, <b>{{uname}}</b>!</p>
+		<p>Hi, <b><a href="/user/{{ uname }}">{{uname}}</a></b>!</p>
 	{% endif %}
 	<a href="/">Home</a> 
 	{% if uname %}
