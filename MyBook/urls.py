@@ -20,6 +20,7 @@ from website import views
 urlpatterns = [
 	url(r'^$', views.index),
 	url(r'^login/$', views.login),
+	url(r'^signup/$', views.signup),
 	url(r'^logout/$', views.logout),
 	url(r'^add/img$', views.add_image),
 	url(r'^add/vid$', views.add_video),

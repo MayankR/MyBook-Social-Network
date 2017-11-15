@@ -42,8 +42,19 @@ def save_video(uname, video_file):
 def save_image(uname, image_file):
 	#Wriet it to azure object store
 
-	
+
 	# with open('some/file/name.txt', 'wb+') as destination:
 	# 	for chunk in image_file.chunks():
 	# 	destination.write(chunk)
+	return True
+
+
+
+
+def does_user_exist(uname):
+	#check if user with this username already exists?
+	return False
+
+def add_new_user(uname, pswd, name, age):
+	#Save this new user to azure db
 	return True

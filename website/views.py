@@ -32,6 +32,33 @@ def login(request):
 
 	return render(request, 'login.html')
 
+def signup(request):
+	uname = request.session.get('uname', False)
+	if uname != False:
+		response = HttpResponseRedirect('/')
+		return response
+
+	if request.method == "POST":
+		uname = request.POST.get('uname', False)
+		pswd = request.POST.get('pswd', False)
+		name = request.POST.get('name', False)
+		age = request.POST.get('age', False)
+
+		if uname==False or pswd==False or name==False or age==False:
+			return render(request, 'signup.html', {'error': 'Enter all details'})
+
+		if(wu.does_user_exist(uname)):
+			return render(request, 'signup.html', {'error': 'Username already exists'})
+
+		wu.add_new_user(uname, pswd, name, age)
+
+		request.session['uname'] = uname
+		request.session.set_expiry(622080000)			#20 years expiry
+		response = HttpResponseRedirect('/')
+		return response
+
+	return render(request, 'signup.html')
+
 def logout(request):
 	del request.session['uname']
 	request.session.modified = True
