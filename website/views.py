@@ -10,7 +10,8 @@ def index(request):
 		response = HttpResponseRedirect('/login')
 		return response
 
-	return render(request, 'home.html', {'uname': uname})
+	res = {"posts": wu.get_feed(uname), 'uname': uname}
+	return render(request, 'home.html', res)
 
 def login(request):
 	uname = request.session.get('uname', False)

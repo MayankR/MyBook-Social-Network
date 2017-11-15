@@ -13,6 +13,8 @@
 	{% else %}
 		<a href="/login">Login</a>
 	{% endif %}
+
+	<hr>
 	<h3>{{ouname}}'s Profile</h3>
 
 	{% if uname == ouname %}
@@ -36,15 +38,21 @@
 		Age: {{ odetail.age }}<br>
 		Following: {{ odetail.following }}
 	{% endif %}
+	<hr>
 	<h2> {{ ouname }}'s Posts</h2>
 	{% for post in posts %}
 		{% if post.type == "message" %}
-			<p><font><b>{{ post.title }}</b></font><br>
+			<p><font size="4"><b>{{ post.title }}</b></font><br>
 			{{ post.content }}</p>
+			<br>
 		{% elif post.type == "image" %}
-			img
+			<p><font size="4"><b>{{ post.title }}</b></font><br>
+			{{ post.content }}</p>
+			<br>
 		{% elif post.type == "video" %}
-			vid
+			<p><font size="4"><b>{{ post.title }}</b></font><br>
+			{{ post.content }}</p>
+			<br>
 		{% endif %}
 	{% endfor %}
 </body>

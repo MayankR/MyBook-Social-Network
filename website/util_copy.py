@@ -67,3 +67,16 @@ def get_posts(uname):
 	cnt = cnt + [{"type": "image", "title": "Bitcoin", "content": "<probably the url>"}]
 	cnt = cnt + [{"type": "video", "title": "Bitcoin ka video", "content": "<probably the url>"}]
 	return cnt
+
+def get_feed(uname):
+	# get the messages, images and videos by the people followed by this user
+	cnt = [{"by": "sprman", "type": "message", "title": "Bitcoin Vanishes", "content": "IDK man, it just happened"}]
+	cnt = cnt + [{"by": "auser", "type": "message", "title": "Holla man Vanishes", "content": "My first post!!"}]
+	cnt = cnt + [{"by": "user4", "type": "image", "title": "Bitcoin", "content": "<probably the url>"}]
+	cnt = cnt + [{"by": "auser", "type": "video", "title": "Bitcoin ka video", "content": "<probably the url>"}]
+	return cnt
+
+def get_post_url(uname, own_relative_url):
+	#u know what to do here :p
+	return True
+
