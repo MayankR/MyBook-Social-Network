@@ -37,3 +37,15 @@ def logout(request):
 	request.session.modified = True
 	response = HttpResponseRedirect('/')
 	return response
+
+def add_video(request):
+	response = HttpResponseRedirect('/')
+	return response
+
+def add_image(request):
+	response = HttpResponseRedirect('/')
+	return response
+
+def add_message(request):
+	response = HttpResponseRedirect('/')
+	return response
