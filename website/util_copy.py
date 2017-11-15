@@ -63,17 +63,17 @@ def add_new_user(uname, pswd, name, age):
 
 def get_posts(uname):
 	# get the messages, images and videos by this user
-	cnt = [{"type": "message", "title": "Bitcoin Vanishes", "content": "IDK man, it just happened"}]
-	cnt = cnt + [{"type": "image", "title": "Bitcoin", "content": "<probably the url>"}]
-	cnt = cnt + [{"type": "video", "title": "Bitcoin ka video", "content": "<probably the url>"}]
+	cnt = [{"type": 0, "title": "Bitcoin Vanishes", "content": "IDK man, it just happened"}]
+	cnt = cnt + [{"type": 1, "title": "Bitcoin", "content": "<probably the url>"}]
+	cnt = cnt + [{"type": 2, "title": "Bitcoin ka video", "content": "<probably the url>"}]
 	return cnt
 
 def get_feed(uname):
 	# get the messages, images and videos by the people followed by this user
-	cnt = [{"username": "sprman", "type": "message", "title": "Bitcoin Vanishes", "content": "IDK man, it just happened"}]
-	cnt = cnt + [{"username": "auser", "type": "message", "title": "Holla man Vanishes", "content": "My first post!!"}]
-	cnt = cnt + [{"username": "user4", "type": "image", "title": "Bitcoin", "content": "<probably the url>"}]
-	cnt = cnt + [{"username": "auser", "type": "video", "title": "Bitcoin ka video", "content": "<probably the url>"}]
+	cnt = [{"username": "sprman", "type": 0, "title": "Bitcoin Vanishes", "content": "IDK man, it just happened"}]
+	cnt = cnt + [{"username": "auser", "type": 0, "title": "Holla man Vanishes", "content": "My first post!!"}]
+	cnt = cnt + [{"username": "user4", "type": 1, "title": "Bitcoin", "content": "<probably the url>"}]
+	cnt = cnt + [{"username": "auser", "type": 2, "title": "Bitcoin ka video", "content": "<probably the url>"}]
 	return cnt
 
 def get_post_url(uname, own_relative_url):

@@ -11,19 +11,19 @@
 	<hr>
 	<h2>My Feed</h2>
 	{% for post in posts %}
-		{% if post.type == "message" %}
+		{% if post.type == 0 %}
 			<p><font size="4"><b>{{ post.title }}</b></font>
-				<font size="2">by <a href="/user/{{ post.by }}">{{ post.username }}</a></font><br>
+				<font size="2">by <a href="/user/{{ post.username }}">{{ post.username }}</a></font><br>
 			{{ post.content }}</p>
 			<br>
-		{% elif post.type == "image" %}
+		{% elif post.type == 1 %}
 			<p><font size="4"><b>{{ post.title }}</b></font>
-				<font size="2">by <a href="/user/{{ post.by }}">{{ post.username }}</a></font><br>
+				<font size="2">by <a href="/user/{{ post.username }}">{{ post.username }}</a></font><br>
 			{{ post.content }}</p>
 			<br>
-		{% elif post.type == "video" %}
+		{% elif post.type == 2 %}
 			<p><font size="4"><b>{{ post.title }}</b></font>
-				<font size="2">by <a href="/user/{{ post.by }}">{{ post.username }}</a></font><br>
+				<font size="2">by <a href="/user/{{ post.username }}">{{ post.username }}</a></font><br>
 			{{ post.content }}</p>
 			<br>
 		{% endif %}
