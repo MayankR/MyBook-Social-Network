@@ -16,11 +16,12 @@
 	<h3>{{ouname}}'s Profile</h3>
 
 	{% if uname == ouname %}
-		<form action="" method="POST">
+		<form action="" method="POST">{% csrf_token %}
 			Name: <input type="text" name="name" value="{{ odetail.name }}"><br>
-			Username: <input type="text" name="uname" value="{{ odetail.uname }}"><br>
+			Username: <input type="text" name="uname" value="{{ odetail.uname }}" readonly><br>
 			Age: <input type="text" name="age" value="{{ odetail.age }}"><br>
-			<input type="submit" name="submit">
+			Following: {{ odetail.following }}<br>
+			<input type="submit" name="submit" value="Update">
 		</form>
 	{% else %}
 		{% if uname %}

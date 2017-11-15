@@ -6,8 +6,20 @@ def user_info(uname):
 	#Get these details from azure
 	return {"name": "Super Man", "uname": uname, "age": 23, "following": ["batman", "wonderwoman"]}
 
+def update_user_info(uname, info_dict):
+	#info_dict will be of form {name: "", age: <int>}
+	return True
+
 def is_following(uname, ouname):
 	#check if uname follows oname
+	return False
+
+def follow_user(uname, ouname):
+	#make uname follow oname
+	return False
+
+def unfollow_user(uname, ouname):
+	#make uname unfollow oname
 	return False
 
 def save_message(uname, post_title, post_content):

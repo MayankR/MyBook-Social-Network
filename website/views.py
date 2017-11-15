@@ -40,6 +40,16 @@ def logout(request):
 
 def user_profile(request, username):
 	uname = request.session.get('uname', False)
+
+	if request.method == "POST":
+		info_dict = {}
+		info_dict["name"] = request.POST.get("name", False)
+		info_dict["age"] = request.POST.get("age", False)
+		wu.update_user_info(uname, info_dict)
+
+		response = HttpResponseRedirect('/user/' + uname)
+		return response
+	
 	res = {'uname': uname, 'ouname': username}
 	res["odetail"] = wu.user_info(username)
 	if uname != False:
