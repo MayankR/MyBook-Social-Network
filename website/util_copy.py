@@ -30,7 +30,7 @@ def following(uname):
 	#Return uname of all users followed by this uname
 	return {}
 
-def save_video(uname, video_file):
+def save_video(uname, video_title, video_file):
 	#Wriet it to azure object store
 
 
@@ -39,7 +39,7 @@ def save_video(uname, video_file):
 	# 	destination.write(chunk)
 	return True
 
-def save_image(uname, image_file):
+def save_image(uname, image_title, image_file):
 	#Wriet it to azure object store
 
 
