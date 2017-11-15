@@ -24,5 +24,6 @@ urlpatterns = [
 	url(r'^add/img$', views.add_image),
 	url(r'^add/vid$', views.add_video),
 	url(r'^add/msg$', views.add_message),
+	url(r'^user/(?P<username>[-_\w\d]+)/$', views.user_profile),
     url(r'^admin/', admin.site.urls),
 ]

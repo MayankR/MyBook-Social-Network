@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ouname}}'s Profile | {{uname}}</title>
+</head>
+<body>
+	{% if uname %}
+		<p>Hi, <b>{{uname}}</b>!</p>
+	{% endif %}
+	<a href="/">Home</a> 
+	{% if uname %}
+		<a href="/logout">Logout</a>
+	{% else %}
+		<a href="/login">Login</a>
+	{% endif %}
+	<h3>{{ouname}}'s Profile</h3>
+
+	{% if uname == ouname %}
+		<form action="" method="POST">
+			Name: <input type="text" name="name" value="{{ odetail.name }}"><br>
+			Username: <input type="text" name="uname" value="{{ odetail.uname }}"><br>
+			Age: <input type="text" name="age" value="{{ odetail.age }}"><br>
+			<input type="submit" name="submit">
+		</form>
+	{% else %}
+		{% if uname %}
+			{% if following %}
+				<a href="unfollow/{{ouname}}">Unfollow</a><br>
+			{% else %}
+				<a href="follow/{{ouname}}">Follow</a><br>
+			{% endif %}
+		{% endif %}
+		Name: {{ odetail.name }}<br>
+		Username: {{ odetail.uname }}<br>
+		Age: {{ odetail.age }}<br>
+		Following: {{ odetail.following }}
+	{% endif %}
+</body>
+</html>

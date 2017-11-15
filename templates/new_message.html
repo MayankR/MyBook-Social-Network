@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Message | {{uname}}</title>
+</head>
+<body>
+	<p>Hi, <b>{{uname}}</b>!</p>
+	<a href="/">Home</a> <a href="/logout">Logout</a>
+	<h3>Enter your new message</h3>
+	<form action="#" method="POST">{% csrf_token %}
+		<input type="text" name="title" placeholder="Title goes here"><br>
+		<textarea type="text" name="content" placeholder="... and the content here!" rows="5" cols="18"></textarea><br>
+		<input type="submit" name="submit_button">
+	</form>
+	<font color="red">{{error}}</font>
+</body>
+</html>

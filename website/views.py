@@ -38,6 +38,17 @@ def logout(request):
 	response = HttpResponseRedirect('/')
 	return response
 
+def user_profile(request, username):
+	uname = request.session.get('uname', False)
+	res = {'uname': uname, 'ouname': username}
+	res["odetail"] = wu.user_info(username)
+	if uname != False:
+		res["following"] = wu.is_following(uname, username)
+	else:
+		res["following"] = False
+	return render(request, 'user_profile.html', res)
+
+
 def add_video(request):
 	response = HttpResponseRedirect('/')
 	return response
@@ -47,5 +58,26 @@ def add_image(request):
 	return response
 
 def add_message(request):
-	response = HttpResponseRedirect('/')
-	return response
+	uname = request.session.get('uname', False)
+	if uname == False:
+		response = HttpResponseRedirect('/login')
+		return response
+
+	if request.method == "POST":
+		title = request.POST.get("title", False)
+		content = request.POST.get("content", False)
+		print(title)
+		print(content)
+		if title==False or content==False or title=="" or content=="":
+			return render(request, 'new_message.html', {'uname': uname, 'error': "Enter all details"})
+
+		wu.save_message(uname, title, content)
+		return render(request, 'new_message.html', {'uname': uname})
+
+
+	
+
+	return render(request, 'new_message.html', {'uname': uname})
+
+
+
