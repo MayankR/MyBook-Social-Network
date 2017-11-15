@@ -10,7 +10,7 @@ def index(request):
 		response = HttpResponseRedirect('/login')
 		return response
 
-	return render(request, 'home.html')
+	return render(request, 'home.html', {'uname': uname})
 
 def login(request):
 	uname = request.session.get('uname', False)
