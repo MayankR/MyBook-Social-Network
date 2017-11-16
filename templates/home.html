@@ -9,6 +9,11 @@
 	<hr>
 	Add new <a href="add/img">Image</a>, <a href="add/msg">Message</a> or <a href="add/vid">Video</a>!
 	<hr>
+	Checkout some more people... 
+	{% for user in ousers %}
+		<a href="/user/{{ user.username }}/">{{ user.username }}</a>
+	{% endfor %}
+	<hr>
 	<h2>My Feed</h2>
 	{% for post in posts %}
 		{% if post.type == 0 %}

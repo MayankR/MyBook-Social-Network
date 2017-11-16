@@ -11,6 +11,9 @@ my_db = client.mybook
 users = my_db.user
 posts = my_db.Posts
 
+def get_some_users():
+	return users.find({})
+
 def check_user(uname, pswd):
 	#Check user with these credentials is there on azure db	
 	item = users.find_one({'username':uname,'passwd':pswd})
@@ -116,7 +119,7 @@ def add_new_user(uname, pswd, name, age):
 def get_posts(uname):
 	# get the messages, images and videos by this user
 	items = posts.find({'username':uname})
-	return items
+	return list(reversed(list(items)))
 	
 def get_feed(uname):
 	# get the messages, images and videos by the people followed by this user
@@ -125,7 +128,7 @@ def get_feed(uname):
 	items = []
 	for item in iterable_cursor:
 		items.append(item)
-	return items
+	return list(reversed(items))
 	
 
 def get_post_url(uname, own_relative_url):

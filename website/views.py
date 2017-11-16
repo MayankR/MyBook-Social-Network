@@ -11,7 +11,7 @@ def index(request):
 		response = HttpResponseRedirect('/login')
 		return response
 
-	res = {"posts": wu.get_feed(uname), 'uname': uname}
+	res = {"posts": wu.get_feed(uname), 'uname': uname, 'ousers': wu.get_some_users()}
 	return render(request, 'home.html', res)
 
 def login(request):
