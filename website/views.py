@@ -173,9 +173,9 @@ def add_video(request):
 
 def get_uploaded_file(request, username, filename):
 	uname = request.session.get('uname', False)
-	if uname == False:
-		response = HttpResponseRedirect('/login')
-		return response
+	# if uname == False:
+	# 	response = HttpResponseRedirect('/login')
+	# 	return response
 
 	file_url = wu.get_post_url(uname,"uploads/"+username+"/"+filename)
 
