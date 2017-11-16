@@ -11,7 +11,9 @@
 	<hr>
 	Checkout some more people... 
 	{% for user in ousers %}
-		<a href="/user/{{ user.username }}/">{{ user.username }}</a>
+		{% if uname != user.username %}
+			<a href="/user/{{ user.username }}/">{{ user.username }}</a>
+		{% endif %}
 	{% endfor %}
 	<hr>
 	<h2>My Feed</h2>
