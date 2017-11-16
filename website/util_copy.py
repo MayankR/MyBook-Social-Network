@@ -78,5 +78,5 @@ def get_feed(uname):
 
 def get_post_url(uname, own_relative_url):
 	#u know what to do here :p
-	return True
+	return "http://google.com"
 

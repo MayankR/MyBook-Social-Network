@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, StreamingHttpResponse
 import website.util_copy as wu
+import requests
 
 # Create your views here.
 
@@ -176,7 +177,7 @@ def get_uploaded_file(request, username, filename):
 		response = HttpResponseRedirect('/login')
 		return response
 
-	file_url = "<blob url you get in the Previous step >"
+	file_url = wu.get_post_url(uname,"uploads/"+username+"/"+filename)
 
 	r = requests.get(file_url, stream=True)
 
