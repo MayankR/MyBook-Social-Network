@@ -1,3 +1,5 @@
+website/private.py
+
 # Byte-compiled / optimized / DLL files
 *.sqlite3
 __pycache__/

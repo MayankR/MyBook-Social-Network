@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, StreamingHttpResponse
-import website.util_copy as wu
+import website.util as wu
 import requests
 
 # Create your views here.
