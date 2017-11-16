@@ -25,6 +25,7 @@ urlpatterns = [
 	url(r'^add/img$', views.add_image),
 	url(r'^add/vid$', views.add_video),
 	url(r'^add/msg$', views.add_message),
+	url(r'^uploads/(?P<username>[-_\w\d]+)/(?P<filename>[-_\w\d]+)/$', views.get_uploaded_file),
 	url(r'^user/(?P<username>[-_\w\d]+)/$', views.user_profile),
 	url(r'^follow/(?P<username>[-_\w\d]+)/$', views.follow_user),
 	url(r'^unfollow/(?P<username>[-_\w\d]+)/$', views.unfollow_user),

@@ -19,7 +19,7 @@
 		{% elif post.type == 1 %}
 			<p><font size="4"><b>{{ post.title }}</b></font>
 				<font size="2">by <a href="/user/{{ post.username }}">{{ post.username }}</a></font><br>
-			{{ post.content }}</p>
+			<img src="{{ post.content }}"></p>
 			<br>
 		{% elif post.type == 2 %}
 			<p><font size="4"><b>{{ post.title }}</b></font>

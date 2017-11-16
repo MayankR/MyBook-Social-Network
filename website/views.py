@@ -170,3 +170,15 @@ def add_video(request):
 
 	return render(request, 'new_video.html', {'uname': uname})
 
+def get_uploaded_file(request, username, filename):
+	uname = request.session.get('uname', False)
+	if uname == False:
+		response = HttpResponseRedirect('/login')
+		return response
+
+	file_url = "<blob url you get in the Previous step >"
+
+	r = requests.get(file_url, stream=True)
+
+	resp = StreamingHttpResponse(streaming_content=r)
+	resp['Content-Disposition'] = 'attachment; filename="' + filename + '"'
