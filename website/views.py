@@ -182,3 +182,5 @@ def get_uploaded_file(request, username, filename):
 
 	resp = StreamingHttpResponse(streaming_content=r)
 	resp['Content-Disposition'] = 'attachment; filename="' + filename + '"'
+
+	return resp
